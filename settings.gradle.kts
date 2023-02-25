@@ -15,6 +15,6 @@ pluginManagement {
     }
 }
 
-rootProject.name = "design-multiplatform-ui"
+rootProject.name = "design-multiplatform-ui-api"
 
 include(":android", ":desktop", ":common")
