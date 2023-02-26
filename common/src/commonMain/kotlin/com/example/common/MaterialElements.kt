@@ -13,6 +13,7 @@ fun MaterialElements(content: @Composable () -> Unit) {
             Text(
                 text = text,
                 fontSize = size.sp,
+                color = MppTextColor.current,
             )
         },
         MppButtonImplementation provides { clickListener, buttonContent ->

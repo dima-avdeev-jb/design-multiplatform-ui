@@ -7,6 +7,7 @@ import androidx.compose.material.Switch
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 
 @Composable
 fun App() {
@@ -29,7 +30,9 @@ fun App() {
 fun Usage() {
     Column {
         var counter: Int by remember { mutableStateOf(0) }
-        MppText("Hello $counter")
+        MppText("Hello $counter") {
+            color(Color.Red)
+        }
         MppButton(clickListener = { counter++ }) {
             MppText("Click me")
         }
