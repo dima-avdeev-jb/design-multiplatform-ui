@@ -2,6 +2,7 @@ package com.example.common
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -27,6 +28,16 @@ fun CupertinoElements(content: @Composable () -> Unit) {
                     buttonContent()
                 }
             }
+        },
+        MppTextFieldImplementation provides { text: String, onValueChange: (String) -> Unit ->
+            BasicTextField(
+                text,
+                onValueChange = onValueChange,
+                textStyle = TextStyle(
+                    color = MppTextField.color.provider.current,
+                    fontSize = MppTextField.size.provider.current.sp,
+                )
+            )
         },
         content = content
     )

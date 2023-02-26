@@ -6,5 +6,11 @@ import androidx.compose.runtime.Composable
 @Preview
 @Composable
 fun AppPreview() {
-    App()
+    configure(conf = {
+        MppTextField.onlyDesktopTooltip("This is tooltip")
+    }) {
+        App()
+    }
 }
+
+val MppTextField.onlyDesktopTooltip by MppTextField.property<String, MppTextField>{"default"}

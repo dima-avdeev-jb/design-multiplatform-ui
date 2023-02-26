@@ -36,5 +36,7 @@ fun Usage() {
         MppButton(clickListener = { counter++ }) {
             MppText("Click me")
         }
+        var textState by remember { mutableStateOf("Text field state") }
+        MppTextField(textState, { textState = it }, conf = { it.color(Color.Magenta) })
     }
 }

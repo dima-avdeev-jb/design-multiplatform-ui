@@ -5,7 +5,7 @@ import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
 
 val MppButtonImplementation: ProvidableCompositionLocal<@Composable (clickListener: () -> Unit, buttonContent: @Composable () -> Unit) -> Unit> =
-    staticCompositionLocalOf { { _, _ -> TODO("provide MppTextImplementation") } }
+    staticCompositionLocalOf { { _, _ -> error("provide MppTextImplementation") } }
 
 @Composable
 fun MppButton(clickListener: () -> Unit, buttonContent: @Composable () -> Unit) {
