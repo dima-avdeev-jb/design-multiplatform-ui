@@ -8,6 +8,6 @@ val MppButtonImplementation: ProvidableCompositionLocal<@Composable (clickListen
     staticCompositionLocalOf { { _, _ -> error("provide MppTextImplementation") } }
 
 @Composable
-fun MppButton(clickListener: () -> Unit, buttonContent: @Composable () -> Unit) {
+fun Button(clickListener: () -> Unit, buttonContent: @Composable () -> Unit) {
     MppButtonImplementation.current(clickListener, buttonContent)
 }

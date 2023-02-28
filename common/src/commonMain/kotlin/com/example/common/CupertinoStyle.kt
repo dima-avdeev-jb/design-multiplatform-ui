@@ -13,13 +13,12 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun CupertinoElements(content: @Composable () -> Unit) {
+fun CupertinoStyle(content: @Composable () -> Unit) {
     CompositionLocalProvider(
         MppTextImplementation provides { text, size ->
             Text(
                 text = text,
                 fontSize = size.sp,
-                color = MppTextColor.current,
             )
         },
         MppButtonImplementation provides { clickListener, buttonContent ->
@@ -33,10 +32,6 @@ fun CupertinoElements(content: @Composable () -> Unit) {
             BasicTextField(
                 text,
                 onValueChange = onValueChange,
-                textStyle = TextStyle(
-                    color = MppTextField.color.provider.current,
-                    fontSize = MppTextField.size.provider.current.sp,
-                )
             )
         },
         content = content

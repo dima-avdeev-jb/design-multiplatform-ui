@@ -2,41 +2,41 @@ package com.example.common
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Switch
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 
 @Composable
 fun App() {
     var cupertinoActive by remember { mutableStateOf(false) }
-    Switch(cupertinoActive, onCheckedChange = { cupertinoActive = it })
+    Row {
+        Switch(cupertinoActive, onCheckedChange = { cupertinoActive = it })
+    }
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         if (cupertinoActive) {
-            CupertinoElements {
-                Usage()
+            CupertinoStyle {
+                Usage(cupertinoActive)
             }
         } else {
-            MaterialElements {
-                Usage()
+            MaterialStyle {
+                Usage(cupertinoActive)
             }
         }
     }
 }
 
 @Composable
-fun Usage() {
+fun Usage(cupertinoActive: Boolean) {
     Column {
+        Text(if (cupertinoActive) "CupertinoStyle" else "MaterialStyle")
         var counter: Int by remember { mutableStateOf(0) }
-        MppText("Hello $counter") {
-            color(Color.Red)
-        }
-        MppButton(clickListener = { counter++ }) {
-            MppText("Click me")
+        Button(clickListener = { counter++ }) {
+            Text("Click me $counter")
         }
         var textState by remember { mutableStateOf("Text field state") }
-        MppTextField(textState, { textState = it }, conf = { it.color(Color.Magenta) })
+        TextField(textState, { textState = it })
     }
 }
