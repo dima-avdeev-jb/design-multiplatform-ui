@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
 
+// todo check performance with a lot of arguments
 val MppTextFieldImplementation: ProvidableCompositionLocal<@Composable (
     text: String,
     onValueChange: (String) -> Unit,

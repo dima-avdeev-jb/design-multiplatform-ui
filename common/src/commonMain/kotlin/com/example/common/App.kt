@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.BottomAppBar
 import androidx.compose.material.Switch
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -18,25 +19,26 @@ fun App() {
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         if (cupertinoActive) {
             CupertinoStyle {
-                Usage(cupertinoActive)
+                Usage("CupertinoStyle")
             }
         } else {
             MaterialStyle {
-                Usage(cupertinoActive)
+                Usage("MaterialStyle")
             }
         }
     }
 }
 
 @Composable
-fun Usage(cupertinoActive: Boolean) {
+fun Usage(styleText: String) {
     Column {
-        Text(if (cupertinoActive) "CupertinoStyle" else "MaterialStyle")
+        Text(styleText)
         var counter: Int by remember { mutableStateOf(0) }
         Button(clickListener = { counter++ }) {
             Text("Click me $counter")
         }
+
         var textState by remember { mutableStateOf("Text field state") }
-        TextField(textState, { textState = it })
+        TextField(textState, onValueChange = { textState = it })
     }
 }
